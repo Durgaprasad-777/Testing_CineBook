@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.ConfigReader;
 
 import java.util.List;
 
@@ -25,9 +26,17 @@ public class BookingPage extends BasePage {
         super(driver);
     }
 
-    public BookingPage waitForLoaded() {
+    public BookingPage waitForBookingPage() {
+        wait.until(ExpectedConditions.urlContains("/book"));
         visible(page);
         return this;
+    }
+
+    public void openMoviesAndBook(String movieId) {
+        driver.get(ConfigReader.baseUrl() + "/movies");
+        visible(id("movies-page"));
+        click(By.id(movieId));
+        waitForBookingPage();
     }
 
     public boolean isDisplayed() {
