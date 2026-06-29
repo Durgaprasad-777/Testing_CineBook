@@ -9,8 +9,8 @@
     <name>CineBook Hybrid Selenium TestNG Framework</name>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.44.0</selenium.version>
         <testng.version>7.10.2</testng.version>
@@ -18,7 +18,7 @@
         <poi.version>5.5.1</poi.version>
         <log4j.version>2.23.1</log4j.version>
         <extentreports.version>5.1.1</extentreports.version>
-        <compiler.version>3.13.0</compiler.version>
+        <compiler.version>3.14.1</compiler.version>
         <resources.version>3.3.1</resources.version>
         <surefire.version>3.2.5</surefire.version>
     </properties>

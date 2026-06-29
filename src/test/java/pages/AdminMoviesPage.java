@@ -10,6 +10,7 @@ public class AdminMoviesPage extends BasePage {
     private final By titleInput = id("mm-input-title");
     private final By genreInput = id("mm-input-genre");
     private final By durationInput = id("mm-input-duration");
+    private final By languageInput=id("mm-input-languages");
     private final By posterInput = id("mm-input-poster");
     private final By trailerInput = id("mm-input-trailer");
     private final By priceInput = id("mm-input-price");
@@ -27,6 +28,16 @@ public class AdminMoviesPage extends BasePage {
         return this;
     }
 
+    public void fillDetails(String title,String genre,String duration,String language,String posterUrl,String trailerUrl,String price){
+        type(titleInput,title);
+        type(genreInput,genre);
+        type(languageInput,language);
+        type(durationInput,duration);
+        type(posterInput,posterUrl);
+        type(trailerInput,trailerUrl);
+        type(priceInput,price);
+    }
+
     public boolean isDisplayed() {
         return isVisible(title) && isVisible(form);
     }
@@ -36,6 +47,15 @@ public class AdminMoviesPage extends BasePage {
                 && isVisible(posterInput) && isVisible(trailerInput) && isVisible(priceInput);
     }
 
+    public int getMovieCount() throws InterruptedException {
+        Thread.sleep(2000);
+        return Integer.parseInt(driver.findElement(By.id("mm-counter-value")).getText());
+    }
+
+    public String getFormErrormsg() throws InterruptedException {
+        //Thread.sleep(3000);
+        return driver.findElement(By.id("mm-form-error")).getText();
+    }
     public void submitEmptyForm() {
         click(submitButton);
     }
