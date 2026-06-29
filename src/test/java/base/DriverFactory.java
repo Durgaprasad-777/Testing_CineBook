@@ -60,15 +60,15 @@ public final class DriverFactory {
     }
 
     private static WebDriver createEdge(boolean headless) {
-        if (ConfigReader.getBoolean("useWebDriverManager", true)) {
-            WebDriverManager.edgedriver().setup();
-        }
-        EdgeOptions options = new EdgeOptions();
-        options.addArguments("--disable-notifications");
-        if (headless) {
-            options.addArguments("--headless=new", "--window-size=1440,1000");
-        }
-        return new EdgeDriver(options);
+//        if (ConfigReader.getBoolean("useWebDriverManager", true)) {
+//            WebDriverManager.edgedriver().setup();
+//        }
+//        EdgeOptions options = new EdgeOptions();
+//        options.addArguments("--disable-notifications");
+//        if (headless) {
+//            options.addArguments("--headless=new", "--window-size=1440,1000");
+//        }
+        return new EdgeDriver();
     }
 
     private static WebDriver createFirefox(boolean headless) {
