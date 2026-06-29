@@ -56,54 +56,79 @@ public class BookingTests extends BaseTest {
     }
 
     @Test(groups = { "concurrency", "booking",
-            "TC_CONCURRENT" }, description = "TC_CONCURRENT: Two users select the same seat on the same show")
+            "TC_CONCURRENT" }, description = "TC_CONCURRENT: Two users select the same seat — only one should succeed at payment")
     public void TC_CONCURRENT_onlyOneUserShouldBookSameSeat() throws InterruptedException {
 
-        // BaseTest.@BeforeMethod already opened 1 browser — close it first
-        // so we only have exactly 2 browsers (driver1 + driver2) open
+        // Close the browser that BaseTest @BeforeMethod auto-opened
         DriverFactory.quitDriver();
 
-        // ── Two separate browser windows ──────────────────────────────────────────
         DriverFactory.createDriver(null, false);
         WebDriver driver1 = DriverFactory.getDriver();
 
         DriverFactory.createDriver(null, false);
         WebDriver driver2 = DriverFactory.getDriver();
 
+        boolean seatSelected1 = false;
+        boolean seatSelected2 = false;
 
         try {
-            // ── rahulkumar ────────────────────────────────────────────────────────
+            // ── rahulkumar: login → booking page → select show → select seat ──────
             new LoginPage(driver1).open().login("rahulkumar", "123456");
             Thread.sleep(3000);
-
             BookingPage bp1 = new BookingPage(driver1).open("/movies/3/book");
             Thread.sleep(3000);
             bp1.selectShow("show-12");
             Thread.sleep(3000);
             bp1.selectFirstAvailableSeat();
             Thread.sleep(3000);
-            System.out.println("[rahulkumar] Seat selected — waiting on booking page.");
+            seatSelected1 = true;
+            System.out.println("[rahulkumar] Seat selected.");
 
-            // ── sanjaykumar ───────────────────────────────────────────────────────
+            // ── sanjaykumar: login → booking page → select show → select seat ─────
             new LoginPage(driver2).open().login("sanjaykumar", "123456");
             Thread.sleep(3000);
-
             BookingPage bp2 = new BookingPage(driver2).open("/movies/3/book");
             Thread.sleep(3000);
             bp2.selectShow("show-12");
             Thread.sleep(3000);
             bp2.selectFirstAvailableSeat();
             Thread.sleep(3000);
-            System.out.println("[sanjaykumar] Seat selected — waiting on booking page.");
+            seatSelected2 = true;
+            System.out.println("[sanjaykumar] Seat selected.");
 
-            // ── Both browsers are now sitting on the seat selection page ──────────
+            // ── Wait until both users have selected their seat ────────────────────
+            while (!seatSelected1 || !seatSelected2) {
+                Thread.sleep(1000);
+            }
+
+            System.out.println("Both seats selected — proceeding to payment on both.");
+            Thread.sleep(3000);
+
+            // ── Both click Proceed to Payment ─────────────────────────────────────
+            bp1.proceedToPay();
+            bp2.proceedToPay();
             Thread.sleep(5000);
+
+            // ── Check if both got redirected to payment page ──────────────────────
+            String url1 = driver1.getCurrentUrl().toLowerCase();
+            String url2 = driver2.getCurrentUrl().toLowerCase();
+
+            boolean user1Redirected = url1.contains("stripe") || url1.contains("/payment/") || url1.contains("checkout");
+            boolean user2Redirected = url2.contains("stripe") || url2.contains("/payment/") || url2.contains("checkout");
+
+            System.out.println("[rahulkumar]  payment redirect: " + user1Redirected + " | url: " + url1);
+            System.out.println("[sanjaykumar] payment redirect: " + user2Redirected + " | url: " + url2);
+
+            // If BOTH got redirected → double booking happened → FAIL
+            Assert.assertFalse(user1Redirected && user2Redirected,
+                    "FAIL: Both rahulkumar and sanjaykumar were redirected to payment for the same seat. Double booking is possible!");
 
         } finally {
             try { driver1.quit(); } catch (Exception ignored) {}
             try { driver2.quit(); } catch (Exception ignored) {}
         }
     }
+
 
     // @Test(dataProvider = "movies")
     // public void checkLeftSeats(String movieId, String showId) throws
