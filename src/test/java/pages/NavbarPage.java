@@ -15,7 +15,7 @@ public class NavbarPage extends BasePage {
     private final By logoutButton = id("navbar-logout-btn");
     private final By locationTrigger = id("nav-location-trigger");
     private final By locationMenu = id("nav-location-menu");
-
+    private final By locationRows = By.cssSelector("[id^='nav-location-row-']:not(#nav-location-row-all)");
     public NavbarPage(WebDriver driver) {
         super(driver);
     }
@@ -46,15 +46,24 @@ public class NavbarPage extends BasePage {
 
     public boolean selectFirstLocation() {
         if (!isVisible(locationTrigger)) {
+            System.out.println("Trigger not visible");
             return false;
         }
+
         click(locationTrigger);
-        visible(locationMenu);
-        List<WebElement> locations = driver.findElements(By.cssSelector("[id^='nav-location-row-']:not(#nav-location-row-all)"));
+
+        // Wait until locations appear
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locationRows));
+
+        List<WebElement> locations = driver.findElements(locationRows);
+
+        System.out.println("Locations found: " + locations.size());
+
         if (locations.isEmpty()) {
             return false;
         }
-        click(locations.get(0));
+
+        locations.get(0).click();
         return true;
     }
 

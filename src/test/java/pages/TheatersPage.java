@@ -22,6 +22,7 @@ public class TheatersPage extends BasePage {
     public TheatersPage open() {
         driver.get(ConfigReader.baseUrl() + "/theaters");
         visible(page);
+        waitForResultsOrEmptyState(theaterNames, emptyState);
         return this;
     }
 
@@ -39,11 +40,11 @@ public class TheatersPage extends BasePage {
     }
 
     public boolean hasTheaterCards() {
-        return !visibleElements(theaterNames).isEmpty();
+        return !waitForVisibleElements(theaterNames).isEmpty();
     }
 
     public boolean hasResultsOrEmptyState() {
-        return hasTheaterCards() || isVisible(emptyState);
+        return waitForResultsOrEmptyState(theaterNames, emptyState);
     }
 
     public boolean resultsContain(String query) {
@@ -55,7 +56,7 @@ public class TheatersPage extends BasePage {
     }
 
     public boolean openFirstTheater() {
-        List<WebElement> cards = visibleElements(theaterCards).stream()
+        List<WebElement> cards = waitForVisibleElements(theaterCards).stream()
                 .filter(element -> "a".equalsIgnoreCase(element.getTagName()))
                 .toList();
         if (cards.isEmpty()) {

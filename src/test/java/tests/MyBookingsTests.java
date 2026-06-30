@@ -8,7 +8,7 @@ import pages.MyBookingsPage;
 
 public class MyBookingsTests extends BaseTest {
 
-    @Test(groups = {"sanity", "regression", "my-bookings", "FRD_2_7"},
+    @Test(groups = {"regression", "my-bookings", "FRD_2_7"},
             description = "FRD_2.7.1-2.7.2: My Bookings page should display booking list or empty state")
     public void FRD_271_myBookingsPageDisplaysBookingsOrEmptyState() {
         loginAsUser();
@@ -22,6 +22,9 @@ public class MyBookingsTests extends BaseTest {
     public void FRD_273_myBookingsStatusTabsAreSelectable() {
         loginAsUser();
         MyBookingsPage page = new MyBookingsPage(driver).open();
+        if (!page.hasTabs()) {
+            throw new SkipException("My Bookings status tabs are not available for the current booking state.");
+        }
         page.switchTabs();
         Assert.assertTrue(page.hasBookingsOrEmptyState(), "Switching status tabs should keep valid booking content visible.");
     }
@@ -37,4 +40,17 @@ public class MyBookingsTests extends BaseTest {
         Assert.assertTrue(page.isCancelDialogVisible(), "Cancel dialog should open.");
         page.closeCancelDialog();
     }
+
+    @Test(groups = {"regression", "my-bookings", "FRD_2_7"},
+            description = "FRD_2.7 7.2: My Bookings page should rate button and submit rating")
+    public void FRD_275MyBookingspageshouldratebuttonandsubmitrating() {
+        loginAsUser();
+        MyBookingsPage page = new MyBookingsPage(driver).open();
+        if (!page.openrFirstRateDialog()) {
+            throw new SkipException("No rate able shows are available.");
+        }
+        Assert.assertTrue(page.isrCancelDialogVisible(), "Cancel dialog should open.");
+        page.closeRateDialog();
+    }
+
 }

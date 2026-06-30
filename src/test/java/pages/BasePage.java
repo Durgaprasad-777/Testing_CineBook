@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,6 +34,38 @@ public abstract class BasePage {
 
     protected WebElement visible(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    protected WebDriverWait dataWait() {
+        return new WebDriverWait(driver, Duration.ofSeconds(ConfigReader.getInt("dataLoadTimeoutSeconds", 35)));
+    }
+
+    protected boolean waitForAnyVisible(By... locators) {
+        try {
+            dataWait().until(driver -> {
+                for (By locator : locators) {
+                    if (isVisible(locator)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    protected List<WebElement> waitForVisibleElements(By locator) {
+        try {
+            dataWait().until(driver -> !visibleElements(locator).isEmpty());
+        } catch (TimeoutException ignored) {
+        }
+        return visibleElements(locator);
+    }
+
+    protected boolean waitForResultsOrEmptyState(By resultsLocator, By emptyStateLocator) {
+        return waitForAnyVisible(resultsLocator, emptyStateLocator);
     }
 
     protected WebElement clickable(By locator) {
@@ -89,10 +122,12 @@ public abstract class BasePage {
 
     protected boolean selectFirstRealOption(By locator) {
         WebElement element = visible(locator);
-        Select select = new Select(element);
-        if (select.getOptions().size() <= 1) {
+        try {
+            dataWait().until(driver -> new Select(element).getOptions().size() > 1);
+        } catch (TimeoutException e) {
             return false;
         }
+        Select select = new Select(element);
         select.selectByIndex(1);
         return true;
     }

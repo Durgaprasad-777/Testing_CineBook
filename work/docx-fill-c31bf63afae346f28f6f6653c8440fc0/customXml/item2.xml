@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8"?><ct:contentTypeSchema ct:_="" ma:_="" ma:contentTypeName="Document" ma:contentTypeID="0x010100B23ED4A5B2009540A53382D69E87A73D" ma:contentTypeVersion="74" ma:contentTypeDescription="Create a new document." ma:contentTypeScope="" ma:versionID="e2bf10ba85b6dc4b5c69a3facd477046" xmlns:ct="http://schemas.microsoft.com/office/2006/metadata/contentType" xmlns:ma="http://schemas.microsoft.com/office/2006/metadata/properties/metaAttributes">
+<xsd:schema targetNamespace="http://schemas.microsoft.com/office/2006/metadata/properties" ma:root="true" ma:fieldsID="57ef74bbe9455019a8905dee0fa0f59c" ns2:_="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:p="http://schemas.microsoft.com/office/2006/metadata/properties" xmlns:ns2="efc29a93-7a0f-4c5c-8a87-48b110339e54">
+<xsd:import namespace="efc29a93-7a0f-4c5c-8a87-48b110339e54"/>
+<xsd:element name="properties">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="documentManagement">
+<xsd:complexType>
+<xsd:all>
+<xsd:element ref="ns2:WFDocName" minOccurs="0"/>
+<xsd:element ref="ns2:DocumentID" minOccurs="0"/>
+<xsd:element ref="ns2:DocVersion" minOccurs="0"/>
+<xsd:element ref="ns2:DocType" minOccurs="0"/>
+<xsd:element ref="ns2:WFAuthor" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewer" minOccurs="0"/>
+<xsd:element ref="ns2:Approver" minOccurs="0"/>
+<xsd:element ref="ns2:ProcessOwner" minOccurs="0"/>
+<xsd:element ref="ns2:ReviewsPendingWith" minOccurs="0"/>
+<xsd:element ref="ns2:ApprovalsPendingWith" minOccurs="0"/>
+<xsd:element ref="ns2:IsNewDoc" minOccurs="0"/>
+<xsd:element ref="ns2:PIPId" minOccurs="0"/>
+<xsd:element ref="ns2:PIPDescription" minOccurs="0"/>
+<xsd:element ref="ns2:ProcessPackage" minOccurs="0"/>
+<xsd:element ref="ns2:DevlopedOn" minOccurs="0"/>
+<xsd:element ref="ns2:ReleaseTeam" minOccurs="0"/>
+<xsd:element ref="ns2:Status" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed1By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed2By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed3By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed4By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed5By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed6By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed7By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed8By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed9By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed10By" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed1On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed2On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed3On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed4On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed5On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed6On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed7On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed8On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed9On" minOccurs="0"/>
+<xsd:element ref="ns2:Reviewed10On" minOccurs="0"/>
+<xsd:element ref="ns2:WFID" minOccurs="0"/>
+<xsd:element ref="ns2:BaseURL" minOccurs="0"/>
+<xsd:element ref="ns2:Approved1By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved2By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved3By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved4By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved5By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved6By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved7By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved8By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved9By" minOccurs="0"/>
+<xsd:element ref="ns2:Approved10By" minOccurs="0"/>
+<xsd:element ref="ns2:ApprovedOn" minOccurs="0"/>
+<xsd:element ref="ns2:Approved2On" minOccurs="0"/>
+<xsd:element ref="ns2:Approved3On" minOccurs="0"/>
+<xsd:element ref="ns2:Approved4On" minOccurs="0"/>
+<xsd:element ref="ns2:Approved5On" minOccurs="0"/>
+<xsd:element ref="ns2:Approved6On" minOccurs="0"/>
+<xsd:element ref="ns2:Approved7On" minOccurs="0"/>
+<xsd:element ref="ns2:Approved8On" minOccurs="0"/>
+<xsd:element ref="ns2:Approved9On" minOccurs="0"/>
+<xsd:element ref="ns2:Approved10On" minOccurs="0"/>
+<xsd:element ref="ns2:RTDocVersion" minOccurs="0"/>
+<xsd:element ref="ns2:CheckedInAt" minOccurs="0"/>
+<xsd:element ref="ns2:WorkflowGroupID" minOccurs="0"/>
+<xsd:element ref="ns2:MediaServiceMetadata" minOccurs="0"/>
+<xsd:element ref="ns2:MediaServiceFastMetadata" minOccurs="0"/>
+<xsd:element ref="ns2:MediaServiceAutoKeyPoints" minOccurs="0"/>
+<xsd:element ref="ns2:MediaServiceKeyPoints" minOccurs="0"/>
+<xsd:element ref="ns2:MediaServiceAutoTags" minOccurs="0"/>
+<xsd:element ref="ns2:MediaServiceOCR" minOccurs="0"/>
+<xsd:element ref="ns2:MediaServiceGenerationTime" minOccurs="0"/>
+<xsd:element ref="ns2:MediaServiceEventHashCode" minOccurs="0"/>
+</xsd:all>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+<xsd:schema targetNamespace="efc29a93-7a0f-4c5c-8a87-48b110339e54" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dms="http://schemas.microsoft.com/office/2006/documentManagement/types" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls">
+<xsd:import namespace="http://schemas.microsoft.com/office/2006/documentManagement/types"/>
+<xsd:import namespace="http://schemas.microsoft.com/office/infopath/2007/PartnerControls"/>
+<xsd:element name="WFDocName" ma:index="2" nillable="true" ma:displayName="WFDocName" ma:internalName="WFDocName" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="DocumentID" ma:index="3" nillable="true" ma:displayName="DocumentID" ma:internalName="DocumentID" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="DocVersion" ma:index="4" nillable="true" ma:displayName="DocVersion" ma:internalName="DocVersion" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="DocType" ma:index="5" nillable="true" ma:displayName="DocType" ma:internalName="DocType" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="WFAuthor" ma:index="6" nillable="true" ma:displayName="WFAuthor" ma:internalName="WFAuthor" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewer" ma:index="7" nillable="true" ma:displayName="Reviewer" ma:internalName="Reviewer" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approver" ma:index="8" nillable="true" ma:displayName="Approver" ma:internalName="Approver" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="ProcessOwner" ma:index="9" nillable="true" ma:displayName="ProcessOwner" ma:internalName="ProcessOwner" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="ReviewsPendingWith" ma:index="10" nillable="true" ma:displayName="ReviewsPendingWith" ma:internalName="ReviewsPendingWith" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="ApprovalsPendingWith" ma:index="11" nillable="true" ma:displayName="ApprovalsPendingWith" ma:internalName="ApprovalsPendingWith" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="IsNewDoc" ma:index="12" nillable="true" ma:displayName="IsNewDoc" ma:default="No" ma:format="Dropdown" ma:internalName="IsNewDoc" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Choice">
+<xsd:enumeration value="No"/>
+<xsd:enumeration value="Yes"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="PIPId" ma:index="13" nillable="true" ma:displayName="PIPId" ma:internalName="PIPId" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="PIPDescription" ma:index="14" nillable="true" ma:displayName="PIPDescription" ma:internalName="PIPDescription" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="ProcessPackage" ma:index="15" nillable="true" ma:displayName="ProcessPackage" ma:internalName="ProcessPackage" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="DevlopedOn" ma:index="16" nillable="true" ma:displayName="DevelopedOn" ma:format="DateOnly" ma:internalName="DevlopedOn" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="ReleaseTeam" ma:index="17" nillable="true" ma:displayName="ReleaseTeam" ma:internalName="ReleaseTeam" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Status" ma:index="18" nillable="true" ma:displayName="Status" ma:default="WorkflowInitiated" ma:format="Dropdown" ma:internalName="Status" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Choice">
+<xsd:enumeration value="WorkflowInitiated"/>
+<xsd:enumeration value="PendingReview"/>
+<xsd:enumeration value="ReviewStarted"/>
+<xsd:enumeration value="SentToAuthor"/>
+<xsd:enumeration value="PendingApproval"/>
+<xsd:enumeration value="ApprovalStarted"/>
+<xsd:enumeration value="SentToPO"/>
+<xsd:enumeration value="SentToRT"/>
+<xsd:enumeration value="SentForEsign"/>
+<xsd:enumeration value="WorflowRejected"/>
+<xsd:enumeration value="Baselined"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed1By" ma:index="19" nillable="true" ma:displayName="Reviewed1By" ma:internalName="Reviewed1By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed2By" ma:index="20" nillable="true" ma:displayName="Reviewed2By" ma:internalName="Reviewed2By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed3By" ma:index="21" nillable="true" ma:displayName="Reviewed3By" ma:internalName="Reviewed3By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed4By" ma:index="22" nillable="true" ma:displayName="Reviewed4By" ma:internalName="Reviewed4By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed5By" ma:index="23" nillable="true" ma:displayName="Reviewed5By" ma:internalName="Reviewed5By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed6By" ma:index="24" nillable="true" ma:displayName="Reviewed6By" ma:internalName="Reviewed6By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed7By" ma:index="25" nillable="true" ma:displayName="Reviewed7By" ma:internalName="Reviewed7By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed8By" ma:index="26" nillable="true" ma:displayName="Reviewed8By" ma:internalName="Reviewed8By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed9By" ma:index="27" nillable="true" ma:displayName="Reviewed9By" ma:internalName="Reviewed9By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed10By" ma:index="28" nillable="true" ma:displayName="Reviewed10By" ma:internalName="Reviewed10By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed1On" ma:index="29" nillable="true" ma:displayName="Reviewed1On" ma:format="DateOnly" ma:internalName="Reviewed1On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed2On" ma:index="30" nillable="true" ma:displayName="Reviewed2On" ma:format="DateOnly" ma:internalName="Reviewed2On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed3On" ma:index="31" nillable="true" ma:displayName="Reviewed3On" ma:format="DateOnly" ma:internalName="Reviewed3On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed4On" ma:index="32" nillable="true" ma:displayName="Reviewed4On" ma:format="DateOnly" ma:internalName="Reviewed4On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed5On" ma:index="33" nillable="true" ma:displayName="Reviewed5On" ma:format="DateOnly" ma:internalName="Reviewed5On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed6On" ma:index="34" nillable="true" ma:displayName="Reviewed6On" ma:format="DateOnly" ma:internalName="Reviewed6On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed7On" ma:index="35" nillable="true" ma:displayName="Reviewed7On" ma:format="DateOnly" ma:internalName="Reviewed7On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed8On" ma:index="36" nillable="true" ma:displayName="Reviewed8On" ma:format="DateOnly" ma:internalName="Reviewed8On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed9On" ma:index="37" nillable="true" ma:displayName="Reviewed9On" ma:format="DateOnly" ma:internalName="Reviewed9On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Reviewed10On" ma:index="38" nillable="true" ma:displayName="Reviewed10On" ma:format="DateOnly" ma:internalName="Reviewed10On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="WFID" ma:index="39" nillable="true" ma:displayName="WFID" ma:internalName="WFID" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="BaseURL" ma:index="40" nillable="true" ma:displayName="BaseURL" ma:internalName="BaseURL" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved1By" ma:index="41" nillable="true" ma:displayName="Approved1By" ma:internalName="Approved1By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved2By" ma:index="42" nillable="true" ma:displayName="Approved2By" ma:internalName="Approved2By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved3By" ma:index="43" nillable="true" ma:displayName="Approved3By" ma:internalName="Approved3By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved4By" ma:index="44" nillable="true" ma:displayName="Approved4By" ma:internalName="Approved4By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved5By" ma:index="45" nillable="true" ma:displayName="Approved5By" ma:internalName="Approved5By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved6By" ma:index="46" nillable="true" ma:displayName="Approved6By" ma:internalName="Approved6By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved7By" ma:index="47" nillable="true" ma:displayName="Approved7By" ma:internalName="Approved7By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved8By" ma:index="48" nillable="true" ma:displayName="Approved8By" ma:internalName="Approved8By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved9By" ma:index="49" nillable="true" ma:displayName="Approved9By" ma:internalName="Approved9By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved10By" ma:index="50" nillable="true" ma:displayName="Approved10By" ma:internalName="Approved10By" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="ApprovedOn" ma:index="51" nillable="true" ma:displayName="Approved1On" ma:format="DateOnly" ma:internalName="ApprovedOn" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved2On" ma:index="52" nillable="true" ma:displayName="Approved2On" ma:format="DateOnly" ma:internalName="Approved2On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved3On" ma:index="53" nillable="true" ma:displayName="Approved3On" ma:format="DateOnly" ma:internalName="Approved3On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved4On" ma:index="54" nillable="true" ma:displayName="Approved4On" ma:format="DateOnly" ma:internalName="Approved4On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved5On" ma:index="55" nillable="true" ma:displayName="Approved5On" ma:format="DateOnly" ma:internalName="Approved5On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved6On" ma:index="56" nillable="true" ma:displayName="Approved6On" ma:format="DateOnly" ma:internalName="Approved6On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved7On" ma:index="57" nillable="true" ma:displayName="Approved7On" ma:format="DateOnly" ma:internalName="Approved7On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved8On" ma:index="58" nillable="true" ma:displayName="Approved8On" ma:format="DateOnly" ma:internalName="Approved8On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved9On" ma:index="59" nillable="true" ma:displayName="Approved9On" ma:format="DateOnly" ma:internalName="Approved9On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Approved10On" ma:index="60" nillable="true" ma:displayName="Approved10On" ma:format="DateOnly" ma:internalName="Approved10On" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="RTDocVersion" ma:index="63" nillable="true" ma:displayName="RTDocVersion" ma:internalName="RTDocVersion" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="CheckedInAt" ma:index="64" nillable="true" ma:displayName="CheckedInAt" ma:format="DateTime" ma:internalName="CheckedInAt" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:DateTime"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="WorkflowGroupID" ma:index="65" nillable="true" ma:displayName="WorkflowGroupID" ma:internalName="WorkflowGroupID" ma:readOnly="false">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="MediaServiceMetadata" ma:index="70" nillable="true" ma:displayName="MediaServiceMetadata" ma:hidden="true" ma:internalName="MediaServiceMetadata" ma:readOnly="true">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="MediaServiceFastMetadata" ma:index="71" nillable="true" ma:displayName="MediaServiceFastMetadata" ma:hidden="true" ma:internalName="MediaServiceFastMetadata" ma:readOnly="true">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="MediaServiceAutoKeyPoints" ma:index="72" nillable="true" ma:displayName="MediaServiceAutoKeyPoints" ma:hidden="true" ma:internalName="MediaServiceAutoKeyPoints" ma:readOnly="true">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="MediaServiceKeyPoints" ma:index="73" nillable="true" ma:displayName="KeyPoints" ma:internalName="MediaServiceKeyPoints" ma:readOnly="true">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="MediaServiceAutoTags" ma:index="74" nillable="true" ma:displayName="Tags" ma:internalName="MediaServiceAutoTags" ma:readOnly="true">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="MediaServiceOCR" ma:index="75" nillable="true" ma:displayName="Extracted Text" ma:internalName="MediaServiceOCR" ma:readOnly="true">
+<xsd:simpleType>
+<xsd:restriction base="dms:Note">
+<xsd:maxLength value="255"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="MediaServiceGenerationTime" ma:index="76" nillable="true" ma:displayName="MediaServiceGenerationTime" ma:hidden="true" ma:internalName="MediaServiceGenerationTime" ma:readOnly="true">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text"/>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="MediaServiceEventHashCode" ma:index="77" nillable="true" ma:displayName="MediaServiceEventHashCode" ma:hidden="true" ma:internalName="MediaServiceEventHashCode" ma:readOnly="true">
+<xsd:simpleType>
+<xsd:restriction base="dms:Text"/>
+</xsd:simpleType>
+</xsd:element>
+</xsd:schema>
+<xsd:schema targetNamespace="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" xmlns="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:odoc="http://schemas.microsoft.com/internal/obd">
+<xsd:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd"/>
+<xsd:import namespace="http://purl.org/dc/terms/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2003/04/02/dcterms.xsd"/>
+<xsd:element name="coreProperties" type="CT_coreProperties"/>
+<xsd:complexType name="CT_coreProperties">
+<xsd:all>
+<xsd:element ref="dc:creator" minOccurs="0" maxOccurs="1"/>
+<xsd:element ref="dcterms:created" minOccurs="0" maxOccurs="1"/>
+<xsd:element ref="dc:identifier" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="contentType" minOccurs="0" maxOccurs="1" type="xsd:string" ma:index="66" ma:displayName="Content Type"/>
+<xsd:element ref="dc:title" minOccurs="0" maxOccurs="1" ma:index="1" ma:displayName="Title"/>
+<xsd:element ref="dc:subject" minOccurs="0" maxOccurs="1"/>
+<xsd:element ref="dc:description" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="keywords" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+<xsd:element ref="dc:language" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="category" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+<xsd:element name="version" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+<xsd:element name="revision" minOccurs="0" maxOccurs="1" type="xsd:string">
+<xsd:annotation>
+<xsd:documentation>
+                        This value indicates the number of saves or revisions. The application is responsible for updating this value after each revision.
+                    </xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="lastModifiedBy" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+<xsd:element ref="dcterms:modified" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="contentStatus" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+</xsd:all>
+</xsd:complexType>
+</xsd:schema>
+<xs:schema targetNamespace="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Person">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="pc:DisplayName" minOccurs="0"></xs:element>
+<xs:element ref="pc:AccountId" minOccurs="0"></xs:element>
+<xs:element ref="pc:AccountType" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DisplayName" type="xs:string"></xs:element>
+<xs:element name="AccountId" type="xs:string"></xs:element>
+<xs:element name="AccountType" type="xs:string"></xs:element>
+<xs:element name="BDCAssociatedEntity">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="pc:BDCEntity" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+<xs:attribute ref="pc:EntityNamespace"></xs:attribute>
+<xs:attribute ref="pc:EntityName"></xs:attribute>
+<xs:attribute ref="pc:SystemInstanceName"></xs:attribute>
+<xs:attribute ref="pc:AssociationName"></xs:attribute>
+</xs:complexType>
+</xs:element>
+<xs:attribute name="EntityNamespace" type="xs:string"></xs:attribute>
+<xs:attribute name="EntityName" type="xs:string"></xs:attribute>
+<xs:attribute name="SystemInstanceName" type="xs:string"></xs:attribute>
+<xs:attribute name="AssociationName" type="xs:string"></xs:attribute>
+<xs:element name="BDCEntity">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="pc:EntityDisplayName" minOccurs="0"></xs:element>
+<xs:element ref="pc:EntityInstanceReference" minOccurs="0"></xs:element>
+<xs:element ref="pc:EntityId1" minOccurs="0"></xs:element>
+<xs:element ref="pc:EntityId2" minOccurs="0"></xs:element>
+<xs:element ref="pc:EntityId3" minOccurs="0"></xs:element>
+<xs:element ref="pc:EntityId4" minOccurs="0"></xs:element>
+<xs:element ref="pc:EntityId5" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="EntityDisplayName" type="xs:string"></xs:element>
+<xs:element name="EntityInstanceReference" type="xs:string"></xs:element>
+<xs:element name="EntityId1" type="xs:string"></xs:element>
+<xs:element name="EntityId2" type="xs:string"></xs:element>
+<xs:element name="EntityId3" type="xs:string"></xs:element>
+<xs:element name="EntityId4" type="xs:string"></xs:element>
+<xs:element name="EntityId5" type="xs:string"></xs:element>
+<xs:element name="Terms">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="pc:TermInfo" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="TermInfo">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="pc:TermName" minOccurs="0"></xs:element>
+<xs:element ref="pc:TermId" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="TermName" type="xs:string"></xs:element>
+<xs:element name="TermId" type="xs:string"></xs:element>
+</xs:schema>
+</ct:contentTypeSchema>

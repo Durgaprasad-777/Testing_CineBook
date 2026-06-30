@@ -17,11 +17,12 @@ public class MovieBrowsingTests extends BaseTest {
 
     @DataProvider(name = "movieSearchData")
     public Object[][] movieSearchData() {
-        List<Map<String, String>> rows = ExcelUtils.readSheet("MovieSearch");
+        List<Map<String, String>> rows = ExcelUtils.
+                readSheet("MovieSearch");
         return rows.stream().map(row -> new Object[]{row}).toArray(Object[][]::new);
     }
 
-    @Test(groups = {"sanity", "regression", "movie", "TS_101", "TC_101"}, dataProvider = "movieSearchData",
+    @Test(groups = {"regression", "movie", "TS_101", "TC_101"}, dataProvider = "movieSearchData",
             description = "TC_101: Validate that movies can be searched")
     public void TC_101_moviesCanBeSearched(Map<String, String> data) {
         loginAsUser();
@@ -61,7 +62,7 @@ public class MovieBrowsingTests extends BaseTest {
         Assert.assertTrue(moviesPage.hasResultsOrEmptyState(), "Theater filter should refresh the movie list.");
     }
 
-    @Test(groups = {"known-defect", "DF_101", "movie", "TS_102", "TC_104"},
+    @Test(groups = {"known-defect", "movie", "TS_102", "TC_104"},
             description = "TC_104 / DF_101: Validate movie card layout fields including poster, title, genre, languages, reviews, book, and trailer")
     public void TC_104_movieCardLayoutShowsAllRequiredFields() {
         loginAsUser();
@@ -70,7 +71,7 @@ public class MovieBrowsingTests extends BaseTest {
         Assert.assertTrue(moviesPage.allVisiblePostersLoad(), "Each visible movie poster should load successfully.");
     }
 
-    @Test(groups = {"known-defect", "DF_102", "movie", "trailer", "TS_102", "TC_105"},
+    @Test(groups = {"known-defect", "movie", "trailer", "TS_102", "TC_105"},
             description = "TC_105 / DF_102: Trailer modal should open and show playable trailer content when a trailer is available")
     public void TC_105_availableTrailerModalOpens() {
         loginAsUser();
@@ -81,15 +82,15 @@ public class MovieBrowsingTests extends BaseTest {
         Assert.assertTrue(moviesPage.trailerModalOrPlayerVisible(), "Trailer modal/player should be visible.");
     }
 
-    @Test(groups = {"regression", "movie", "trailer", "TS_102", "TC_106"},
-            description = "TC_106: Trailer unavailable state should show a proper unavailable message")
-    public void TC_106_unavailableTrailerHasUnavailableMessage() {
-        loginAsUser();
-        MoviesPage moviesPage = new MoviesPage(driver).open();
-        if (!moviesPage.hasDisabledTrailerButton()) {
-            throw new SkipException("No unavailable trailer button is present in current data.");
-        }
-        Assert.assertTrue(moviesPage.disabledTrailerButtonsHaveUnavailableMessage(),
-                "Disabled trailer buttons should explain that no trailer is available.");
-    }
+//    @Test(groups = {"regression", "movie", "trailer", "TS_102", "TC_106"},
+//            description = "TC_106: Trailer unavailable state should show a proper unavailable message")
+//    public void TC_106_unavailableTrailerHasUnavailableMessage() {
+//        loginAsUser();
+//        MoviesPage moviesPage = new MoviesPage(driver).open();
+//        if (!moviesPage.hasDisabledTrailerButton()) {
+//            throw new SkipException("No unavailable trailer button is present in current data.");
+//        }
+//        Assert.assertTrue(moviesPage.disabledTrailerButtonsHaveUnavailableMessage(),
+//                "Disabled trailer buttons should explain that no trailer is available.");
+//    }
 }

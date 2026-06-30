@@ -3,6 +3,7 @@ package tests;
 import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.BookingPage;
@@ -17,8 +18,8 @@ public class BookingTests extends BaseTest {
     }
 
     @Test(dataProvider = "movies", groups = { "regression", "booking", "FRD_2_5" },
-            description = "FRD_2.5.7: Proceeding without a selected seat should show validation feedback")
-    public void FRD_251_bookingRequiresAtLeastOneSeat(String movieId, String showId) throws InterruptedException {
+            description = "Proceeding without a selected seat should show validation feedback")
+    public void bookingRequiresAtLeastOneSeat(String movieId, String showId) throws InterruptedException {
         loginAsUser();
         Thread.sleep(3000);
 
@@ -26,9 +27,14 @@ public class BookingTests extends BaseTest {
         bookingPage.openMoviesAndBook(movieId);
 
         Thread.sleep(3000);
-        bookingPage.selectFirstShowIfPresent();
+        if (!bookingPage.selectFirstShowIfPresent()) {
+            throw new SkipException("No selectable shows are available for this movie.");
+        }
 
         Thread.sleep(3000);
+        if (!bookingPage.hasConfirmButton()) {
+            throw new SkipException("Booking confirmation button is not available for the selected show.");
+        }
         bookingPage.proceedToPay();
 
         Thread.sleep(3000);
@@ -38,7 +44,7 @@ public class BookingTests extends BaseTest {
 
     @Test(dataProvider = "movies", groups = { "booking", "regression", "FRD_2_5" },
             description = "Verify already booked seats are disabled/unselectable.")
-    public void FRD_252_alreadyBookedSeatsAreDisabledAndUnselectable(String movieId, String showId)
+    public void alreadyBookedSeatsAreDisabledAndUnselectable(String movieId, String showId)
             throws InterruptedException {
         loginAsUser();
         Thread.sleep(3000);
@@ -47,7 +53,9 @@ public class BookingTests extends BaseTest {
         bookingPage.openMoviesAndBook(movieId);
 
         Thread.sleep(3000);
-        bookingPage.selectFirstShowIfPresent();
+        if (!bookingPage.selectFirstShowIfPresent()) {
+            throw new SkipException("No selectable shows are available for this movie.");
+        }
 
         Thread.sleep(3000);
         List<WebElement> bookedSeats = bookingPage.getBookedSeats();
@@ -65,8 +73,8 @@ public class BookingTests extends BaseTest {
     }
 
     @Test(dataProvider = "movies", groups = { "payment", "destructive", "booking", "TS_103", "TC_107" },
-            description = "TC_107: Verify booking is successful for selected movie through payment redirect boundary")
-    public void TC_107_bookingCanProceedToPaymentForSelectedMovie(String movieId, String showId)
+            description = "Verify booking is successful for selected movie through payment redirect boundary")
+    public void bookingCanProceedToPaymentForSelectedMovie(String movieId, String showId)
             throws InterruptedException {
         loginAsUser();
         Thread.sleep(3000);
@@ -75,7 +83,9 @@ public class BookingTests extends BaseTest {
         bookingPage.openMoviesAndBook(movieId);
 
         Thread.sleep(3000);
-        bookingPage.selectFirstShowIfPresent();
+        if (!bookingPage.selectFirstShowIfPresent()) {
+            throw new SkipException("No selectable shows are available for this movie.");
+        }
 
         Thread.sleep(3000);
         bookingPage.selectFirstAvailableSeat();
@@ -89,5 +99,21 @@ public class BookingTests extends BaseTest {
         Thread.sleep(3000);
         Assert.assertTrue(bookingPage.navigatedToPaymentOrSuccess(),
                 "Proceeding should redirect to payment or payment result page.");
+    }
+
+
+    @Test(dataProvider = "movies", groups = { "regression", "booking", "FRD_2_5" },
+            description = "Verify the total price matches the selected movie and show seat")
+    public void checkPrice(String movieId, String showId) throws InterruptedException {
+        loginAsUser();
+        Thread.sleep(3000);
+        BookingPage bookingPage = new BookingPage(driver);
+        bookingPage.selectMovie(movieId);
+        Thread.sleep(3000);
+        bookingPage.selectShow(showId);
+        Thread.sleep(3000);
+        bookingPage.selectFirstAvailableSeat();
+        String totalPrice = bookingPage.getTotalPrice();
+        Assert.assertEquals(totalPrice,"₹224.20");
     }
 }

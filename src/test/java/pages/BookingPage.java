@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +17,9 @@ public class BookingPage extends BasePage {
     private final By error = id("booking-error");
     private final By total = id("booking-total");
     private final By seatCount = id("booking-seat-count");
+    private final By paymentSuccessStatus = id("payment-success-status");
+    private final By stripePaymentFrame = By.cssSelector("iframe[name*='__privateStripeFrame'], iframe[title*='Secure payment'], iframe[src*='stripe.com'], iframe[name='link-login']");
+    private final By stripeSubmitButton = By.cssSelector("button[data-testid='hosted-payment-submit-button']");
 
     private final By seatsLoaded = By.cssSelector("[id^='seat-']");
     private final By allSeats = By.cssSelector("button[id^='seat-']");
@@ -25,7 +30,8 @@ public class BookingPage extends BasePage {
             "[id^='seat-']:not(.disabled):not([disabled]):not(.booked):not(.seat-booked), .seat-available:not([disabled])"
     );
     private final By shows = By.cssSelector("[id^='show-']:not([disabled])");
-
+    private final By ticketPrice = By.xpath("//*[@class='text-base font-bold text-tomato-600']");
+    private final By totalPrice = By.id("booking-total");
     public BookingPage(WebDriver driver) {
         super(driver);
     }
@@ -65,7 +71,8 @@ public class BookingPage extends BasePage {
     }
 
     public boolean selectFirstAvailableSeat() {
-        List<WebElement> seats = visibleElements(availableSeats).stream()
+
+        List<WebElement> seats = driver.findElements(allSeats).stream()
                 .filter(WebElement::isEnabled)
                 .toList();
         if (seats.isEmpty()) {
@@ -79,8 +86,12 @@ public class BookingPage extends BasePage {
         return isVisible(seatCount) && !text(seatCount).isBlank() && isVisible(total);
     }
 
+    public boolean hasConfirmButton() {
+        return isVisible(confirmButton);
+    }
+
     public void proceedToPay() {
-        driver.findElement(confirmButton).click();
+        click(confirmButton);
     }
 
     public boolean waitForErrorOrStillOnBooking() {
@@ -93,6 +104,37 @@ public class BookingPage extends BasePage {
             return url.contains("checkout.stripe") || url.contains("/payment/") || url.contains("stripe.com");
         });
         return true;
+    }
+
+    public boolean waitForPaymentSuccessPage() {
+        wait.until(driver -> currentUrl().contains("/payment/success"));
+        visible(paymentSuccessStatus);
+        return true;
+    }
+
+    public String getPaymentSuccessStatusText() {
+        return text(paymentSuccessStatus);
+    }
+
+    public void completeStripePayment(String email, String cardNumber, String cardExpiry, String cardCvc, String billingName) {
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(stripePaymentFrame));
+
+        type(By.id("email"), email);
+        type(By.id("cardNumber"), cardNumber);
+        type(By.id("cardExpiry"), cardExpiry);
+        type(By.id("cardCvc"), cardCvc);
+        type(By.id("billingName"), billingName);
+
+        WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(stripeSubmitButton));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", submit);
+
+        try {
+            submit.click();
+        } catch (org.openqa.selenium.ElementClickInterceptedException intercepted) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submit);
+        }
+
+        driver.switchTo().defaultContent();
     }
 
     public String getSeatsLeft(String showId) {
@@ -157,5 +199,13 @@ public class BookingPage extends BasePage {
                 className.contains("disabled")
                         || className.contains("booked")
                         || className.contains("seat-booked")));
+    }
+
+    public String getTicketPrice(){
+        return driver.findElement(ticketPrice).getText();
+    }
+
+    public String getTotalPrice(){
+        return driver.findElement(totalPrice).getText();
     }
 }

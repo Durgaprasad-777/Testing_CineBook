@@ -28,6 +28,7 @@ public class MoviesPage extends BasePage {
     public MoviesPage open() {
         driver.get(ConfigReader.baseUrl() + "/movies");
         visible(page);
+        waitForResultsOrEmptyState(movieCards, emptyState);
         return this;
     }
 
@@ -45,11 +46,11 @@ public class MoviesPage extends BasePage {
     }
 
     public boolean hasMovieCards() {
-        return !visibleElements(movieCards).isEmpty();
+        return !waitForVisibleElements(movieCards).isEmpty();
     }
 
     public boolean hasResultsOrEmptyState() {
-        return hasMovieCards() || isVisible(emptyState);
+        return waitForResultsOrEmptyState(movieCards, emptyState);
     }
 
     public boolean resultsContain(String text) {
@@ -61,7 +62,8 @@ public class MoviesPage extends BasePage {
     }
 
     public boolean selectFirstGenre() {
-        List<WebElement> genres = driver.findElements(By.cssSelector("[id^='movies-genre-']:not(#movies-genre-all)"));
+        By genreOptions = By.cssSelector("[id^='movies-genre-']:not(#movies-genre-all)");
+        List<WebElement> genres = waitForVisibleElements(genreOptions);
         if (genres.isEmpty()) {
             return false;
         }
@@ -70,7 +72,8 @@ public class MoviesPage extends BasePage {
     }
 
     public boolean selectFirstLanguage() {
-        List<WebElement> languages = driver.findElements(By.cssSelector("[id^='movies-language-']:not(#movies-language-all)"));
+        By languageOptions = By.cssSelector("[id^='movies-language-']:not(#movies-language-all)");
+        List<WebElement> languages = waitForVisibleElements(languageOptions);
         if (languages.isEmpty()) {
             return false;
         }
@@ -89,7 +92,7 @@ public class MoviesPage extends BasePage {
     }
 
     public boolean everyVisibleCardHasRequiredFields() {
-        List<WebElement> cards = visibleElements(movieCards);
+        List<WebElement> cards = waitForVisibleElements(movieCards);
         if (cards.isEmpty()) {
             throw new SkipException("No movie cards are available for validation.");
         }
@@ -107,7 +110,7 @@ public class MoviesPage extends BasePage {
     }
 
     public boolean allVisiblePostersLoad() {
-        List<WebElement> posters = visibleElements(moviePosters);
+        List<WebElement> posters = waitForVisibleElements(moviePosters);
         if (posters.isEmpty()) {
             return false;
         }
@@ -115,7 +118,7 @@ public class MoviesPage extends BasePage {
     }
 
     public boolean bookFirstMovie() {
-        List<WebElement> buttons = visibleElements(bookButtons);
+        List<WebElement> buttons = waitForVisibleElements(bookButtons);
         if (buttons.isEmpty()) {
             return false;
         }
@@ -125,7 +128,7 @@ public class MoviesPage extends BasePage {
     }
 
     public boolean openFirstEnabledTrailer() {
-        List<WebElement> buttons = visibleElements(trailerButtons).stream()
+        List<WebElement> buttons = waitForVisibleElements(trailerButtons).stream()
                 .filter(WebElement::isEnabled)
                 .toList();
         if (buttons.isEmpty()) {
@@ -136,11 +139,11 @@ public class MoviesPage extends BasePage {
     }
 
     public boolean hasDisabledTrailerButton() {
-        return visibleElements(trailerButtons).stream().anyMatch(button -> !button.isEnabled());
+        return waitForVisibleElements(trailerButtons).stream().anyMatch(button -> !button.isEnabled());
     }
 
     public boolean disabledTrailerButtonsHaveUnavailableMessage() {
-        return visibleElements(trailerButtons).stream()
+        return waitForVisibleElements(trailerButtons).stream()
                 .filter(button -> !button.isEnabled())
                 .allMatch(button -> {
                     String title = button.getAttribute("title");
